@@ -78,10 +78,16 @@ public class Ajedrez {
             // Sino, cambiar turno
             cambioTurno();
 
+            //PREGUNTAR: En que momento realiza jugada (mover o comer), y como
+           //captura el evento del gui para saber cual de los dos es la que quiere
+           //realizar
+
         } while (!terminado);
         cronometro.parar();
 
         //TODO: Cambiarlo de lugar
+        //PREGUNTAR: No entiendo el TODO
+
         if (terminado) {
             System.out.println("El Jugador "
                     + jugadores[turno].getNombre() + " ha ganado");
@@ -101,6 +107,7 @@ public class Ajedrez {
         return false;
     }
 
+    //¿Cómo sería algoritmicamente?
     private boolean validarTablas() {
         //TODO: Validar si los jugadores se han quedado sin posibilidad de ganar
         return false;
@@ -110,6 +117,7 @@ public class Ajedrez {
         terminado = true;
     }
 
+    /*Pone en casilla la ficha correspondiente, y a la ficha le asigna la casilla en la que está*/
     private void ubicarFichasTablero() {
         asociarFichaTablero(tablero.getCasilla("A1"), new Torre(Color.BLANCO));
         asociarFichaTablero(tablero.getCasilla("B1"), new Caballo(Color.BLANCO));
@@ -141,6 +149,7 @@ public class Ajedrez {
         c.setFicha(f);
     }
 
+    /*PREGUNTAR: Cual es el método de pnlTablero.updateUI()? Es de la clase que extiende JPanel?*/
     private void mostrarTablero() {
         pnlTablero.updateUI();
 //        System.out.println("  \tA \tB \tC \tD \tE \tF \tG \tH");

@@ -22,6 +22,7 @@ public class Jugador {
 
     public void jugar() {
         // TODO: Mover ficha de forma inteligente
+        //PREGUNTAR: ¿Qué significa mover de forma inteligente?
     }
 
     public void setAjedrez(Ajedrez ajedrez) {
