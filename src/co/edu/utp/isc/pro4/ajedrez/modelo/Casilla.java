@@ -31,6 +31,7 @@ public class Casilla extends Dibujable {
     public Color getColor() {
         return color;
     }
+    
 
     public int getFila() {
         return fila;

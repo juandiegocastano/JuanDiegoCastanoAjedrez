@@ -41,6 +41,7 @@ public class FrmAjedrez extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNegras = new javax.swing.JTextField();
         btnJugar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         pnlTablero = new PnlTablero();
         jPanel4 = new javax.swing.JPanel();
@@ -79,6 +80,8 @@ public class FrmAjedrez extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cambiar peon");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,6 +99,8 @@ public class FrmAjedrez extends javax.swing.JFrame {
                         .addComponent(txtNegras))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(btnJugar)))
                 .addContainerGap())
         );
@@ -114,7 +119,9 @@ public class FrmAjedrez extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtNegras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnJugar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnJugar)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -294,6 +301,9 @@ public class FrmAjedrez extends javax.swing.JFrame {
             int row = 1 + evt.getY() / 50;
 //            System.out.print(col + ", " + row + " = ");
             System.out.println((char) ('A' + col - 1) + Integer.toString(row));
+            String origen = (char) ('A' + col - 1) + Integer.toString(row);
+            juego.getTablero().getCasilla(origen).getFicha().mover();
+            System.out.println("Hola");
             if (jugadaInicial) {
                 txtInicio.setText((char) ('A' + col - 1) + Integer.toString(row));
                 jugadaInicial = false;
@@ -347,6 +357,7 @@ public class FrmAjedrez extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJugar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

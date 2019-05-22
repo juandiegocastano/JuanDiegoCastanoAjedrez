@@ -23,12 +23,11 @@ import java.awt.geom.Rectangle2D;
      y pasarle como parametro a mover para que sepa a donde va a quedar el peon?
      ¿No debería entonces pasarle un argumento?*/
      @Override
-     public void mover() {
+     public void mover(Casilla origen, Casilla destino) {
          //TODO: Mover como peon
-         Casilla lugarDestino;
-         if(this.getCasilla().getColumna()==lugarDestino.getColumna()){
-             this.setCasilla(lugarDestino);
-         }
+//         if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
+//             this.setCasilla(lugarDestino);
+//         }
      }
 
      @Override
