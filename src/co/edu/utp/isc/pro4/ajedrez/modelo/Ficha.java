@@ -20,9 +20,14 @@ public abstract class Ficha extends Dibujable {
         this.color = color;
     }
 
-    public abstract void mover(Casilla origen, Casilla destino);
+    public abstract void mover(Casilla destino);
 
-    public abstract void comer();
+    /**
+     *
+     * @param origen
+     * @param destino
+     */
+    public abstract void comer(Casilla origen, Casilla destino);
 
     public Casilla getCasilla() {
         return casilla;

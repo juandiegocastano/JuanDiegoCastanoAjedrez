@@ -23,16 +23,31 @@ import java.awt.geom.Rectangle2D;
      y pasarle como parametro a mover para que sepa a donde va a quedar el peon?
      ¿No debería entonces pasarle un argumento?*/
      @Override
-     public void mover(Casilla origen, Casilla destino) {
+     public void mover(Casilla destino) {
          //TODO: Mover como peon
-//         if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
-//             this.setCasilla(lugarDestino);
-//         }
+         if(!destino.isOcupada()){
+             if(this.getColor().equals("BLANCO")){
+                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
+                    this.setCasilla(destino);
+                }
+                else System.out.println("Movimiento inválido");
+                }
+             else if(this.getColor().equals("NEGRO")){
+                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
+                    this.setCasilla(destino);
+                }
+                else System.out.println("Movimiento inválido");
+                }
+         }  else this.comer(origen, destino); 
+        
+        // System.out.println("Origen " + origen.getColumna() + origen.getFila() + "  Destino: " + destino.getColumna()+ destino.getFila() );
+         //this.setCasilla(destino);
      }
 
      @Override
-     public void comer() {
+     public void comer(Casilla origen, Casilla destino) {
          //TODO: Comer como peon
+         
      }
 
      @Override

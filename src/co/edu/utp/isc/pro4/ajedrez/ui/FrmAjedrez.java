@@ -16,6 +16,7 @@ public class FrmAjedrez extends javax.swing.JFrame {
 
     private Ajedrez juego;
     private boolean jugadaInicial = true;
+    private int colOrigen, rowOrigen, colDestino, rowDestino = 0;
 
     /**
      * Creates new form FrmAjedrez
@@ -299,17 +300,38 @@ public class FrmAjedrez extends javax.swing.JFrame {
 //            System.out.print(evt.getX() + ", " + evt.getY() + " = ");
             int col = 1 + evt.getX() / 50;
             int row = 1 + evt.getY() / 50;
+   
 //            System.out.print(col + ", " + row + " = ");
-            System.out.println((char) ('A' + col - 1) + Integer.toString(row));
-            String origen = (char) ('A' + col - 1) + Integer.toString(row);
-            juego.getTablero().getCasilla(origen).getFicha().mover();
-            System.out.println("Hola");
+//            System.out.println("Origen: " + (char) ('A' + colOrigen - 1) + Integer.toString(rowOrigen));
+//            //String origen = (char) ('A' + colOrigen - 1) + Integer.toString(rowOrigen);
+//            
+//            System.out.println("Destino: " + (char) ('A' + colDestino - 1) + Integer.toString(rowDestino));
+//            //String destino = (char) ('A' + colDestino - 1) + Integer.toString(rowDestino);
+//            
+//            //juego.getTablero().getCasilla(origen).getFicha().mover();
+//            System.out.println("Hola");
             if (jugadaInicial) {
-                txtInicio.setText((char) ('A' + col - 1) + Integer.toString(row));
+                txtInicio.setText( (char) ('A' + col - 1) + Integer.toString(row));
+                rowOrigen = row;
+                colOrigen = col;
                 jugadaInicial = false;
             } else {
                 txtFin.setText((char) ('A' + col - 1) + Integer.toString(row));
+                rowDestino = row;
+                colDestino = col;
+                
+                //System.out.println("Origen: " + (char) ('A' + colOrigen - 1) + Integer.toString(rowOrigen));
+                String origen = (char) ('A' + colOrigen - 1) + Integer.toString(rowOrigen);
+            //System.out.println("Origen: " + origen);
+                //System.out.println("Origen x: " + juego.getTablero().getCasilla(origen).getColumna() + juego.getTablero().getCasilla(origen).getFila() );
+//            
+                //System.out.println("Destino: " + (char) ('A' + colDestino - 1) + Integer.toString(rowDestino));
+                String destino = (char) ('A' + colDestino - 1) + Integer.toString(rowDestino);
                 jugadaInicial = true;
+                
+                juego.getTablero().getCasilla(origen).getFicha().mover( juego.getTablero().getCasilla(destino) );
+                
+   
             }
         }
     }//GEN-LAST:event_pnlTableroMouseReleased
