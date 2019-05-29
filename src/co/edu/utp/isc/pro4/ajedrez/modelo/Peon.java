@@ -24,28 +24,32 @@ import java.awt.geom.Rectangle2D;
      ¿No debería entonces pasarle un argumento?*/
      @Override
      public void mover(Casilla destino) {
+         //this.setCasilla(destino);
+         System.out.println("Mueve peon");
+        
+         super.asociarFichaTablero(this, destino);
          //TODO: Mover como peon
-         if(!destino.isOcupada()){
-             if(this.getColor().equals("BLANCO")){
-                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
-                    this.setCasilla(destino);
-                }
-                else System.out.println("Movimiento inválido");
-                }
-             else if(this.getColor().equals("NEGRO")){
-                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
-                    this.setCasilla(destino);
-                }
-                else System.out.println("Movimiento inválido");
-                }
-         }  else this.comer(origen, destino); 
+//         if(!destino.isOcupada()){
+//             if(this.getColor().equals("BLANCO")){
+//                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
+//                    this.setCasilla(destino);
+//                }
+//                else System.out.println("Movimiento inválido");
+//                }
+//             else if(this.getColor().equals("NEGRO")){
+//                if( (this.getCasilla().getColumna()== destino.getColumna()) && (this.getCasilla().getFila()== destino.getFila()+1)){
+//                    this.setCasilla(destino);
+//                }
+//                else System.out.println("Movimiento inválido");
+//                }
+//         }  else this.comer(destino); 
         
         // System.out.println("Origen " + origen.getColumna() + origen.getFila() + "  Destino: " + destino.getColumna()+ destino.getFila() );
          //this.setCasilla(destino);
      }
 
      @Override
-     public void comer(Casilla origen, Casilla destino) {
+     public void comer(Casilla destino) {
          //TODO: Comer como peon
          
      }

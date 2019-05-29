@@ -27,7 +27,7 @@ public abstract class Ficha extends Dibujable {
      * @param origen
      * @param destino
      */
-    public abstract void comer(Casilla origen, Casilla destino);
+    public abstract void comer(Casilla destino);
 
     public Casilla getCasilla() {
         return casilla;
@@ -40,7 +40,11 @@ public abstract class Ficha extends Dibujable {
     public Color getColor() {
         return color;
     }
-
+    public void asociarFichaTablero(Ficha ficha,Casilla casilla){
+        ficha.setCasilla(casilla);
+        casilla.setFicha(ficha);
+    }
+    
     @Override
     public String toString() {
         String tipo = "";

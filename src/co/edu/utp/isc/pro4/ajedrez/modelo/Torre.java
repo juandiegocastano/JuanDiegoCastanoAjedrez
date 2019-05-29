@@ -20,12 +20,12 @@ public class Torre extends Ficha {
     }
 
     @Override
-    public void mover() {
+    public void mover(Casilla destino) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void comer() {
+    public void comer(Casilla destino) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

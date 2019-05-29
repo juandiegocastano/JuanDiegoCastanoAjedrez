@@ -6,6 +6,8 @@
 package co.edu.utp.isc.pro4.ajedrez.modelo;
 
 import co.edu.utp.isc.pro4.ajedrez.controlador.Ajedrez;
+//import excepciones.MovimientoNoValidoException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,10 +22,36 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void jugar() {
-        // TODO: Mover ficha de forma inteligente
-        //PREGUNTAR: ¿Qué significa mover de forma inteligente?
+    public void jugar (Casilla casillaI, Casilla casillaF){
+        boolean efectivo;
+        efectivo = false;
+        if(casillaI.isOcupada()){
+            Ficha f;
+            f = casillaI.getFicha();
+            System.out.println("Color: "+ casillaI.getFicha().getColor()+". Turno:"+ajedrez.getTurno());
+                        if((casillaI.getFicha().getColor() == Color.BLANCO) && (ajedrez.getTurno() == 0)//Valida si el turno concuerda on el color de ficha que selecciono 
+                || (casillaI.getFicha().getColor() == Color.NEGRO) && (ajedrez.getTurno() == 1)){
+   
+                 f.mover(casillaF);   
+            }
+
+              else{
+                ajedrez.cambioTurno();//Para volver al turno en que estaba
+                System.out.println("No es su turno");
+            
+         }
+       }
+       else{
+            System.out.println("No ha seleccionado una ficha");
+                 efectivo = false;
+        } 
+        if(!efectivo){
+            ajedrez.cambioTurno();
+             JOptionPane.showMessageDialog(null,"Vuelva a internarlo");
+        
+        }
     }
+
 
     public void setAjedrez(Ajedrez ajedrez) {
         this.ajedrez = ajedrez;
